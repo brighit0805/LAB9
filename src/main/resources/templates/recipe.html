@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Recipes</title>
+</head>
+<body>
+<h1>Recipes</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.name}"></td>
+        <td th:text="${recipe.category}"></td>
+        <td>
+            <form method="post" action="/addFavorite">
+                <input type="hidden" name="recipeId" th:value="${recipe.id}">
+                <button type="submit">Add to Favorite</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
