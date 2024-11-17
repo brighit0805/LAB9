@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Meals</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <h1>Search Meals</h1>
+    <form method="get" action="/searchMeals">
+        <input type="text" name="mealName" placeholder="Enter meal name">
+        <button type="submit">Search</button>
+    </form>
+</header>
+<main>
+    <div class="grid">
+        <div class="card" th:each="meal : ${meals}">
+            <a th:href="@{/mealDetail(mealName=${meal.strMeal})}">
+                <img th:src="${meal.strMealThumb}" alt="Meal Image">
+                <h3 th:text="${meal.strMeal}"></h3>
+                <p th:text="${meal.strCategory}"></p>
+            </a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

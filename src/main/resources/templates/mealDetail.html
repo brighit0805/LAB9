@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meal Detail</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <h1 th:text="${meal.strMeal}"></h1>
+    <img th:src="${meal.strMealThumb}" alt="Meal Image">
+</header>
+<main>
+    <h2>Category: <span th:text="${meal.strCategory}"></span></h2>
+    <h3>Instructions</h3>
+    <p th:text="${meal.strInstructions}"></p>
+</main>
+</body>
+</html>

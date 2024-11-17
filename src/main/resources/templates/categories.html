@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>TeleMeal - Categories</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-$END$
+<header>
+    <nav>
+        <h1>TeleMeal</h1>
+        <ul>
+            <li><a href="/categories">Categories</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <h2>Categories</h2>
+        <form method="get" action="/categories" class="search-form">
+            <input type="text" name="search" placeholder="Search for a meal">
+            <button type="submit">Search</button>
+        </form>
+        <div class="grid">
+            <div class="card" th:each="category : ${categories}">
+                <img th:src="${category.strCategoryThumb}" alt="Category Image">
+                <h3 th:text="${category.strCategory}"></h3>
+                <p th:text="${category.strCategoryDescription}"></p>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2024 TeleMeal</p>
+</footer>
 </body>
 </html>
